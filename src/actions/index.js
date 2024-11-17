@@ -6,10 +6,14 @@ export const fetchTodos = () => (dispatch) => {
     dispatch(setTodos(data));
   });
 };
-export const addNewTodo = () => (dispatch) => {
-  return axios.post('http://localhost:9091/api/todos/add').then(({ data }) => {
-    dispatch(addTodo(data));
-  });
+export const addNewTodo = (task) => (dispatch) => {
+  console.log(task, 'checking the task');
+  return axios
+    .post('http://localhost:9091/api/todos/add', task)
+    .then((task) => {
+      dispatch(addTodo(task));
+      return task;
+    });
 };
 
 function setTodos(data) {
