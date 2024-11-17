@@ -1,0 +1,73 @@
+@use './breakpoints' as breakpoint;
+
+@mixin box($max-width, $width, $background-color, $val) {
+  max-width: $max-width;
+  width: $width;
+  background-color: $background-color;
+  border-radius: $val $val $val $val;
+}
+
+@mixin flexify(
+  $flex-direction: false,
+  $justify: false,
+  $align-items: false,
+  $align-self: false,
+  $flex: false
+) {
+  display: flex;
+
+  @if $flex != false {
+    flex: $flex;
+  }
+
+  @if $justify != false {
+    justify-content: $justify;
+  }
+
+  @if $align-items != false {
+    align-items: $align-items;
+  }
+
+  @if $align-items != false {
+    align-items: $align-items;
+  }
+  @if $flex-direction != false {
+    flex-direction: $flex-direction;
+  }
+}
+
+@mixin desktop-breakpoint {
+  @media (min-width: breakpoint.$desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet-breakpoint {
+  @media (min-width: breakpoint.$tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile-breakpoint {
+  @media (min-width: breakpoint.$mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin max-desktop-breakpoint {
+  @media (max-width: breakpoint.$desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin max-tablet-breakpoint {
+  @media (max-width: breakpoint.$tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin max-mobile-breakpoint {
+  @media (max-width: breakpoint.$mobile-breakpoint) {
+    @content;
+  }
+}
