@@ -1,10 +1,9 @@
 @use './breakpoints' as breakpoint;
 
-@mixin box($max-width, $width, $background-color, $val) {
+@mixin box($max-width, $width, $background-color) {
   max-width: $max-width;
   width: $width;
   background-color: $background-color;
-  border-radius: $val $val $val $val;
 }
 
 @mixin flexify(

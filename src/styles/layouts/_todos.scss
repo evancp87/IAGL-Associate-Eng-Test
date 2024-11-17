@@ -1,22 +1,87 @@
+@use '../abstracts/' as a;
 .todo-app {
   font-family: sans-serif;
 }
 
-/** add todo **/
-.add-todo {
-  margin-left: 0.5rem;
+main {
+  @include a.flexify($flex-direction: column, $align-items: center);
 }
 
 /** todo list **/
-.todo-list {
-  margin-top: 1rem;
-  text-align: left;
-  list-style: none;
-}
 
-/** todo item **/
-.todo-item {
-  font-family: monospace;
-  cursor: pointer;
-  line-height: 1.5;
+.todo {
+  width: calc(100vw - 30%);
+  padding: 1em;
+
+  .todo-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    &__text {
+      width: 70%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      outline: none;
+      &:focus {
+        border-color: #a6a8b0;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &__btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #bfc1c9;
+      color: #000;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &:hover {
+        background-color: #a6a8b0;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  &-list {
+    @include a.box(100%, 100vw, a.$todo-bg);
+    border-radius: 1em;
+    padding: 3em;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: left;
+    list-style: none;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+
+    &-item {
+      padding: 3em;
+      margin-block: 1em;
+      @include a.box(100%, 100vw, a.$todo-item);
+      border-radius: 1em;
+      font-family: monospace;
+      cursor: pointer;
+      line-height: 1.5;
+      &__text {
+        font-size: 18px;
+      }
+    }
+  }
 }

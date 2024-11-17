@@ -13,8 +13,8 @@
 
 body {
   line-height: 1.5;
+  background-color: $bg;
 }
-
 img,
 picture,
 video,
@@ -51,7 +51,9 @@ ul {
 
 html {
   font-size: 100%;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-weight: 400;
   font-style: normal;
 }
