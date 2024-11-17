@@ -6,6 +6,11 @@ export const fetchTodos = () => (dispatch) => {
     dispatch(setTodos(data));
   });
 };
+export const addNewTodo = () => (dispatch) => {
+  return axios.post('http://localhost:9091/api/todos/add').then(({ data }) => {
+    dispatch(addTodo(data));
+  });
+};
 
 function setTodos(data) {
   return {
